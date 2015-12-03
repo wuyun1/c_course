@@ -1,0 +1,1 @@
+	require("./serverapi/xcopy.js")("./app/chapters","./dist/chapters");
