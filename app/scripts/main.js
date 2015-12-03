@@ -16,17 +16,23 @@ $(function($){
   });
   $.get("chapters/code_hollc.txt",function(data){
     editor.setValue(data);
+    $("#div_ouput").text("运行结果窗口");
   });
 
   var runing = false;
   $("#btn_run").click(function () {
     if(runing) return;
-    $("#ouput").text("正在编译并运行。。。");runing = true;
+    $("#div_ouput").text("正在编译并运行。。。");runing = true;
     $.getJSON("/serverapi/runC",{code:editor.getValue()},function(data){
-      $("#ouput").text(data);
+      $("#div_ouput").text(data.d);
+      if(data.e){
+        alert("运行错误");
+      }else{
+        alert("运行正确");
+      }
       runing = false;
     });
-  })
+  });
 
 });
 
