@@ -20,7 +20,7 @@ router.get('/runC', function(req, res) {
   console.log(code);
   runC(code,function(err,data){
     res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify(data));
+    res.end(JSON.stringify({e:err,d:data}));
   });
 
 });

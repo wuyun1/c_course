@@ -24,7 +24,12 @@ $(function($){
     if(runing) return;
     $("#div_ouput").text("正在编译并运行。。。");runing = true;
     $.getJSON("/serverapi/runC",{code:editor.getValue()},function(data){
-      $("#div_ouput").text(data);
+      $("#div_ouput").text(data.d);
+      if(data.e){
+        alert("运行错误");
+      }else{
+        alert("运行正确");
+      }
       runing = false;
     });
   });

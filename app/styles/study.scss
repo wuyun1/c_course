@@ -86,37 +86,37 @@ body,html,#container{
     top:41px;
     bottom:20px;
     overflow-y: auto;
-      &>li{
+    &>li{
 
-        &>h4{
-          border-bottom: 1px solid black;
+      &>h4{
+        border-bottom: 1px solid black;
+      }
+      &>ol{
+        &>li{
+          list-style-type: none;
+          margin-bottom: 15px;
+          border-radius: 3px;
+          text-align: center;
+          width: 60%;
+          color: #1300ff;
+          padding: 10px 0px;
+          background: #f4f3ff;
+          transition: all .3s ease-in-out;
+          transform-origin: 50% 50%;
         }
-        &>ol{
-          &>li{
-            list-style-type: none;
-            margin-bottom: 15px;
-            border-radius: 3px;
-            text-align: center;
-            width: 60%;
-            color: #1300ff;
-            padding: 10px 0px;
-            background: #f4f3ff;
-            transition: all .3s ease-in-out;
-            transform-origin: 50% 50%;
-          }
-          &>li.active,&>li:hover{
-            color: #f4f3ff;
-            background: #1300ff;
-            transform: scale(1.2);
-          }
-          &>li.active{
-            background: #000;
-          }
-
-
+        &>li.active,&>li:hover{
+          color: #f4f3ff;
+          background: #1300ff;
+          transform: scale(1.2);
         }
+        &>li.active{
+          background: #000;
+        }
+
+
       }
     }
+  }
 
 }
 #mask{
