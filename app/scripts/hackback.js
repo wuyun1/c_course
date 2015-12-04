@@ -1,6 +1,6 @@
 console.log("开始画背景！");
 var q=document.getElementById("canvas_back");
-var n = 100;
+var n = 255;
 var context = q.getContext('2d');
 var s = window.screen;
 var width = q.width = s.width;
@@ -9,7 +9,7 @@ context.fillStyle='rgba(0,0,0)';
 context.fillRect(0,0,width,height);
 function letter(){
   this.text =Math.random()>0.5?"0":"1",
-   this.speed= Math.random()*3+3,
+   this.speed= Math.random()*3+6,
     this.y_pos = Math.random()*height,
     this.x_pos = Math.random()*width;
   this.font =  (15+Math.round(20*Math.random()))+"pt Arial";
@@ -19,7 +19,7 @@ letter.prototype={
   "run":function(){
     if(this.y_pos >  758 + Math.random() * 1e4){
       this.y_pos = 0;
-      this.speed = Math.random()*3+3;
+      this.speed = Math.random()*3+6;
       this.text = Math.random()>0.5?"0":"1";
       this.x_pos = Math.random()*width;
       this.font =  (15+Math.round(20*Math.random()))+"pt Arial";

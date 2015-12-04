@@ -26,12 +26,31 @@ $(function($){
     $.getJSON("/serverapi/runC",{code:editor.getValue()},function(data){
       $("#div_ouput").text(data.d);
       if(data.e){
-        alert("运行错误");
+        $("#tip_content").text("运行错误");
       }else{
-        alert("运行正确");
+        $("#tip_content").text("运行正确");
       }
+      $("#tip").show(300);
       runing = false;
     });
+  });
+  $("#try_again").click(function () {
+    $("#tip").hide(400);
+  });
+  $("#next").click(function () {
+    $("#tip").hide(400);
+    $("#btn_solder").click();
+    if(cur_count_id<count_id-1){
+      var next_id_str = "[count_id='"+(cur_count_id+1)+"']";
+      setTimeout(function(){
+        $(next_id_str).click();
+      },500);
+    }else{
+      if(confirm("已经到最后一章的课程，是否返回主页？")){
+        location.href="/";
+      }
+    }
+
   });
   var ispop_menu = true;
   $("#btn_solder").click(function () {

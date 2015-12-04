@@ -24,9 +24,53 @@ body,html,#container{
 
     #div_edit{
       height:56%;
+      position: relative;
+
+      .CodeMirror {
+        position: absolute;
+        height:100%;
+        width:100%;
+        padding-bottom: 58px;
+        font-family: monospace;
+        .CodeMirror-hscrollbar {
+          bottom: 45px;
+        }
+
+      }
+      #tip{
+        display: none;
+        position: absolute;
+        background: #000;
+        z-index:800;
+        bottom: 0px;
+        left:8px;
+        right: 8px;
+        border-radius: 5px;
+        padding:3px;
+        box-shadow: rgba(0, 0, 0, 0.67) 3px 3px 3px;
+        #tip_content{
+          margin-bottom: 10px;
+          padding: 10px;
+          border-bottom: 1px solid white;
+        }
+      }
+      .ctl_div{
+        background: black;
+        position: absolute;
+        bottom:0;
+        width:100%;
+      }
     }
     #div_ouput{
-      height:44%;
+      position: absolute;
+      top:56%;
+      bottom:0;
+      text-align: left;
+      background: #000;
+      color: #fff;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: auto;
     }
   }
 }
