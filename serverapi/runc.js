@@ -14,9 +14,13 @@ function runC(code,fn){
         fn(error,stderr);
       }else{
         fn(null,stdout);
-        fs.unlinkSync("temp.exe");
+        if(fs.existsSync("temp.exe")){
+    fs.unlinkSync("temp.exe");
+  }
       }
-      fs.unlinkSync("temp.c");
+      if(fs.existsSync("temp.c")){
+       fs.unlinkSync("temp.c");
+     }
     });
   }
   if(fs.existsSync("temp.c")){

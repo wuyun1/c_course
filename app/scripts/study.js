@@ -94,6 +94,7 @@ $(function($){
             location.hash=ref_id;
             iframe_main.attr("src","/chapters/h"+ref_id+".html");
             $.get("/chapters/code"+ref_id+".txt",function(data){
+              $("#tip").hide(400);
               editor.setValue(data);
               $("#div_ouput").text("运行结果窗口");
             });
