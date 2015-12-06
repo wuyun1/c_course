@@ -15,12 +15,13 @@ function runC(code,fn){
       }else{
         fn(null,stdout);
         if(fs.existsSync("temp.exe")){
-    fs.unlinkSync("temp.exe");
-  }
+           fs.unlinkSync("temp.exe");
+        }
       }
+      
       if(fs.existsSync("temp.c")){
-       fs.unlinkSync("temp.c");
-     }
+         fs.unlinkSync("temp.c");
+      }
     });
   }
   if(fs.existsSync("temp.c")){
@@ -30,12 +31,12 @@ function runC(code,fn){
   }else{
     run();
   }
-  if(fs.existsSync("temp.c")){
-    fs.unlinkSync("temp.c");
-  }
-  if(fs.existsSync("temp.exe")){
-    fs.unlinkSync("temp.exe");
-  }
+  // if(fs.existsSync("temp.c")){
+  //   fs.unlinkSync("temp.c");
+  // }
+  // if(fs.existsSync("temp.exe")){
+  //   fs.unlinkSync("temp.exe");
+  // }
 }
 
 //runC("#include<stdio.h>\nint main(){printf(\"asdfsd\");return 0;}", function (err,data) {  console.log(data);});
