@@ -1,13 +1,13 @@
 var fs = require("fs");
 var execSync = require("child_process").exec;
-
+var tempName = "t"+(new Date().getTime()*Math.random()).toString();
+var ccmdstr = "g++ "+tempName+".c -o "+tempName+".exe&&chmod 0777 "+tempName+".exe&&./"+tempName+".exe";
+if(process.platform.indexOf("win")==0) {
+  ccmdstr="g++ "+tempName+".c -o "+tempName+".exe&&"+tempName+".exe";
+}
 function runC(code,fn){
 
-    var tempName = "t"+(new Date().getTime()*Math.random()).toString();
-    var ccmdstr = "g++ "+tempName+".c -o "+tempName+".exe&&chmod 0777 "+tempName+".exe&&./"+tempName+".exe";
-    if(process.platform.indexOf("win")==0) {
-      ccmdstr="g++ "+tempName+".c -o "+tempName+".exe&&"+tempName+".exe";
-    }
+ 
     fs.writeFileSync(tempName+".c",code);
     
     execSync(ccmdstr,function (error, stdout, stderr) {
